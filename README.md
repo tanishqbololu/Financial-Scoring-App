@@ -77,7 +77,7 @@ streamlit run streamlit_app.py
 
 # Usage
 **Using the Flask API**
-- Send a POST request to ```http://127.0.0.1:5000/get_financial_score``` with the following JSON payload:
+- Send a POST request to ```http://127.0.0.1:5000/get_financial_score``` with the following JSON payload example:
 ```bash
 {
   "Income": 50000,
