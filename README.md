@@ -5,9 +5,10 @@ This repository provides a financial scoring system designed to evaluate the fin
 # Table of Contents
 1. Features
 2. Model Logic
-3. Setup Instructions
-4. Usage
-5. Technologies Used
+3. Visualisations
+4. Setup Instructions
+5. Usage
+6. Technologies Used
 
 # Features
 1. Flask API
@@ -27,6 +28,11 @@ The financial score is calculated based on the following metrics:
   4. Credit Card Spending Ratio: Penalizes excessive credit card usage.
   5. Financial Goals Met (%): Rewards achieving financial milestones.
   6. Discretionary Spending: Penalizes higher spending on travel and entertainment.
+
+# Visualizations
+1. Spending Patterns: Visualize expense distribution across categories like travel and entertainment.
+2. Family Scores: Analyze family-wise financial scores.
+3. Member Insights: Explore individual member spending trends.
 
 # Scoring Formula
 The score is computed as a weighted sum of normalized metrics:
@@ -76,23 +82,44 @@ streamlit run streamlit_app.py
 * The Streamlit app will open in your default browser.
 
 # Usage
-**Using the Flask API**
-- Send a POST request to ```http://127.0.0.1:5000/get_financial_score``` with the following JSON payload example:
+* Install Postman:  
+  * Download and install Postman from Postman Official Website.
+  * Setup a POST Request:
+   - URL: ```http://127.0.0.1:5000/get_financial_score```
+   - Method: POST
+   - Headers: Set Content-Type to application/json
+     
+* Sample JSON Input:
 ```bash
 {
   "Income": 50000,
-  "Savings": 10000,
-  "Expenses": 15000,
+  "Savings": 15000,
+  "Expenses": 20000,
   "LoanPayments": 5000,
-  "CreditCardSpending": 2000,
-  "TravelEntertainment": 3000,
-  "Amount": 4000,
-  "FinancialGoalsMet": 75
+  "CreditCardSpending": 3000,
+  "TravelEntertainment": 1000,
+  "Amount": 25000,
+  "FinancialGoalsMet": 80
 }
 ```
-- The API will return a response with the calculated financial score.
-- I used POSTMAN for testing
-  
+
+* Send Request: Click "Send" to test the API.
+
+* Sample JSON Response:
+```bash
+{
+ "Income": 50000,
+ "Savings": 15000,
+ "Expenses": 20000,
+ "LoanPayments": 5000,
+ "CreditCardSpending": 3000,
+ "TravelEntertainment": 1000,
+ "Amount": 25000,
+ "FinancialGoalsMet": 80,
+ "Score": 75.4
+ }
+```
+
 **Using the Streamlit App**
 - Input your financial details into the provided fields.
 - Click on "Calculate Financial Score" to view your results.
